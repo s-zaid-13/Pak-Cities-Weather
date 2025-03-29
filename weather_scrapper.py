@@ -59,6 +59,7 @@ if __name__=='__main__':
     with concurrent.futures.ThreadPoolExecutor(max_workers=NO_OF_THREADS) as executor:
         for city in tqdm(cities):
             executor.submit(get_cities_weather,city,weather_data)
-    output_file_xls(weather_data)
+        executor.submit(output_file_xls,weather_data)
+    
 
     
